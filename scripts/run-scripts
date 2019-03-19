@@ -1,0 +1,20 @@
+#!/bin/bash 
+
+FOLDER_DATE=$(date +%Y%m%d%H%M)
+mkdir -p result-$FOLDER_DATE
+cd result-$FOLDER_DATE
+
+# Downloading VMs
+../download.sh
+
+# Creating 1 click multiplatform files
+../create-pharo-start.sh
+
+# Setting skip PharoThings installation
+[[ "{$1}" = *no* ]] && NOINSTALL=\"
+../install-packages.sh $NOINSTALL
+
+# Creating the Zip files
+../create-zip-files.sh
+
+exit

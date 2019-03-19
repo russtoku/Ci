@@ -1,0 +1,32 @@
+language: c
+git:
+  depth: 1
+addons:
+  apt:
+    packages:
+    - git
+    - libasound2:i386
+    - libcairo2:i386
+    - libz1:i386
+    - libbz2-1.0:i386
+    - libssl1.0.0:i386
+    - libfreetype6:i386
+install:
+- "./scripts/download.sh"
+- "./scripts/create-pharo-start.sh"
+- "./scripts/install-packages.sh"
+- "./scripts/create-zip-files.sh"
+script:
+- echo " "
+deploy:
+  provider: releases
+  api_key:
+    secure: GSP8KWasnk23OgOInxIwieDrqLiYiXqrgWMj8gJwoRYvPqQyijZS/lrjxqLyZ9+lu1OYL+WfZDmDxngWkZJCVqcZlqdoVWCx7RoWagZlUrwl/v1J3NIOeU0dqQ2tF/Z9F8S5VnZn6kElptgbqAFx4apizB/z0ea+0JOGt557yaP5/3UEEsaesNLd1+3iApW8YfMWvYEFb145/wpftMgWs6obGw899zGClRUzNlZDYSP8uNX8tTg4lNO+qEUG4d8yKulaZjUJt58fVeWPYzl0PKaaTK7rhRwH8/7gvf1PYLSwoRzzS8cQ5jc1Vee3c6RZSs/XwwcLEjA/SzrhPtv7W9vuaplDG4IddqnDwnsk31MkQUuI526+yrR2KRWGHPXpkGkocPXT+by99ukyH1Sl56Fxwcgxf89GrgqH0OWlF+M6o20l+NsocJGFFsfSMicekuh+C31u28xAnr6zSv6wdnguaUKkXkYEFPwPnkoKph137SvEY1+V3SjYdhO0xwmyIq4gMmn10U55O2Swp3QCjkCYHml/zGpiflkOr8RPEKAvy8vxXKKvSh8ydqLuCezf08tL0nu50t7HN3PG6yvRL0b3OhnO0BPrWgfdp2FCsyPcdGK+ixUMw1eYx1CuYIr3yVopP7xUDh+UYUCdOaG3SefnVMahbUAoT2CkQicLOT4=
+  skip_cleanup: true
+  file_glob: true
+  file: download/*.zip
+  on:
+    tags: true
+    repo: pharo-iot/Ci
+after_deploy:
+- "./scripts/upload.sh"

@@ -1,0 +1,117 @@
+<html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-5301477-18"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-5301477-18');
+</script>
+<title>Pharo IoT Installation Guide</title>
+<style>
+BODY, TABLE { 
+	font-family: Arial;
+	line-height: 1.5em;
+}
+BODY { 
+	background-color: white;
+	margin-top: 1.5em;
+}
+TD { 
+	vertical-align: top;
+	padding: 0 1ex 0 0;
+}
+PRE, CODE { 
+	background-color: #EEE;
+	padding: 0.5ex 0.8ex;
+	border-radius: 0.5ex;
+}
+A { 
+	color: black;
+}
+</style>
+</head>
+<body>
+<h1>Pharo IoT Installation Guide</h1>    
+<div class="markdown-body">
+    <h2>Download the zip file according to your scenario:</h2>
+<p>There are 3 zip files with the VM and Pharo IoT already installed.</p>
+<ul>
+<li>
+<p><strong>pharoiot-server</strong> (Raspberry Pi)<br>
+This file has Pharo7, ARM VM and Pharo IoT <strong>server</strong> loaded;<br>
+<strong><a href="http://get.pharoiot.com/server" rel="nofollow" >Zeroconf</a></strong>:<code>wget -O - get.pharoiot.com/server | bash</code><br>
+<strong><a href="http://get.pharoiot.com/server.zip" rel="nofollow">Download</a></strong>:<code>wget get.pharoiot.com/server.zip</code></p>
+</li>
+<li>
+<p><strong>pharoiot-client</strong> (Raspberry Pi)<br>
+This file has Pharo7, ARM VM, Pharo IoT <strong>server and client</strong> loaded. This way you can to work in the Raspberry Pi directly connected in a screen and keyboard/mouse, using the developer PharoThings tools, like the Board Inspector;<br>
+<strong><a href="http://get.pharoiot.com/client" rel="nofollow">Zeroconf</a></strong>:<code>wget -O - get.pharoiot.com/client | bash</code><br>
+<strong><a href="http://get.pharoiot.com/client.zip" rel="nofollow">Download</a></strong>:<code>wget get.pharoiot.com/client.zip</code></p>
+</li>
+<li>
+<p><strong>pharoiot-multi</strong> (Raspberry Pi, Linux, Windows, Mac)<br>
+This file has Pharo7, all VMs 32bit, Pharo IoT <strong>server and client</strong> loaded.<br>
+<strong><a href="http://get.pharoiot.com/multi" rel="nofollow">Zeroconf</a></strong>:<code>wget -O - get.pharoiot.com/multi | bash</code><br>
+<strong><a href="http://get.pharoiot.com/multi.zip" rel="nofollow">Download</a></strong>:<code>wget get.pharoiot.com/multi.zip</code></p>
+</li>
+</ul>
+<h2>Start files</h2>
+<p>There are 4 files of <em>1 click start</em>. All of them start with the Pharo image already selected. You can use them according to your necessities:</p>
+<ul>
+<li><strong>pharo</strong> (Raspberry, Linux, Mac OSX)<br>
+Run Pharo in the command line. You can pass arguments, for example <code>./pharo --help</code> or <code>./pharo --version</code></li>
+<li><strong>pharo-ui</strong> (Raspberry, Linux, Mac OSX)<br>
+Open Pharo User Interface. Double click or run in command line <code>./pharo-ui</code>.</li>
+<li><strong>pharo-server</strong> (Raspberry, Linux, Mac OSX)<br>
+Start pharo in headless mode with TelePharo listening on port 40423 TCP, run the command <code>./pharo-server</code> or double click in it.  You can send the process to the background to release your terminal using &amp;, for example <code>./pharo-server &amp;</code></li>
+<li><strong>pharo.bat</strong> (Windows)<br>
+Open Pharo User Interface on Microsoft Windows.</li>
+</ul>
+<h2>Connecting</h2>
+<ol>
+<li>Start the <strong>pharo-server</strong> on Raspberry Pi.</li>
+<li>Run the Pharo IoT client: <strong>pharo-ui</strong> (Mac, Linux) or <strong>pharo.bat</strong> (Windows). Open the Playground, type and run this line (cmd + D):</li>
+</ol>
+<pre><code>remotePharo := TlpRemoteIDE connectTo: (TCPAddress ip: #[192 168 1 200] port: 40423).
+</code></pre>
+<ol start="3">
+<li>If you don't receive any error, this means that you are connected. Now you can inspect the physical board of your Raspberry Pi:</li>
+</ol>
+<pre><code>remoteBoard := remotePharo evaluate: [ RpiBoard3B current].
+remoteBoard inspect.
+</code></pre>
+<p>You can also call the <em>Remote Playground</em>, <em>Remote System Browser</em> and <em>Remote Process Browser</em>:</p>
+<pre><code>remotePharo openPlayground.
+remotePharo openBrowser.
+remotePharo openProcessBrowser.
+</code></pre>
+<h2>Playing with Pharo IoT Booklet</h2>
+<p>You can start playing with LEDs, sensors and learn how to build your <strong>Mini-Weather Station</strong> to shows the temperature and other parameters in an LCD display, and send the data to a cloud server.<br>
+All this content and lessons are written in the <strong>PharoThings Booklet</strong>, you can access it here: <a href="https://github.com/SquareBracketAssociates/Booklet-APharoThingsTutorial/" target="_blank">PharoThings Booklet</a></p>
+  </div>
+<h1>Raspberry Pi Headless Instalation</h1>
+<p>You can install the Operation System (Raspbian) in your Raspberry Pi and do all configuration without keyboard/mouse/screen. With this method you will automaticaly:</p>
+<ul>
+<li>Set the hostname</li>    
+<li>Set boot to console</li>
+<li>Enable the I2C and SPI modules</li>
+<li>Connect in your WiFi network</li>
+<li>Download Pharo IoT</li>
+<li>and start the server every boot</li>
+</ul>
+<p>Download the PiBakery: <a href="https://www.pibakery.org/download.html" rel="nofollow" target="_blank">PiBakery Download</a>
+<br>Download the conf file: <a href="http://get.pharoiot.com/pibakeryPharoIoT.xml" download >PiBakery Pharo IoT Configuration</a></p>
+<ol>
+<li>Import this conf file in PiBakery</li>
+<li>Change your hostname and WiFi configuration</li>
+<li>Insert the SD card in your machine, click in Write and select the Operation System <strong>Raspbian Full</strong></li>
+<li>After the process, insert the SD in the Raspberry and wait around 2 minutes to it finish the automatic configuration</li>
+<li>Now you can find your Raspberry by hostname that you set before</li>
+</ol>
+<br><hr><br>
+If you want to improve the content of this page, do the changes and make a Pull Request in the file <a href="https://github.com/pharo-iot/Ci/blob/master/docs/index.html">https://github.com/pharo-iot/Ci/blob/master/docs/index.html</a>
+</body>    
+</html>
