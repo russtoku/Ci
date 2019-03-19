@@ -31,6 +31,7 @@ $1 Iceberg enableMetacelloIntegration: true.
 Metacello new
   baseline: 'PharoThings';
   repository: 'github://pharo-iot/PharoThings/src';
+  onConflict: [:e | e useIncoming  ];
   load: #(RemoteDevServer Raspberry). $1
 Smalltalk saveSession. 
 " > /dev/null 2>&1
@@ -41,7 +42,7 @@ wget -P tmp http://get.pharoiot.com/welcomePharoIoT.st
 ./tmp/pharo32/pharo tmp/$TEMP_RASP_SER/PharoThings32.image eval --save "
 HelpBrowser allInstances do: #close.
 WelcomeHelp open.
-" > /dev/null 2>&1
+" 
 
 mkdir $TEMP_RASP_SER
 cp tmp/$TEMP_RASP_SER/PharoThings32.image $TEMP_RASP_SER
@@ -58,6 +59,7 @@ $1 Iceberg enableMetacelloIntegration: true.
 Metacello new
   baseline: 'PharoThings';
   repository: 'github://pharo-iot/PharoThings/src';
+  onConflict: [:e | e useIncoming  ];
   load: 'RemoteDev'. $1
 Smalltalk saveSession. 
 " > /dev/null 2>&1
@@ -134,10 +136,12 @@ $1 Iceberg enableMetacelloIntegration: true.
 Metacello new
   baseline: 'PharoThings';
   repository: 'github://pharo-iot/PharoThings/src';
+  onConflict: [:e | e useIncoming  ];
   load: 'RemoteDev'.
 Metacello new
   baseline: 'PharoThings';
   repository: 'github://pharo-iot/PharoThings/src';
+  onConflict: [:e | e useIncoming  ];
   load: #(RemoteDevServer Raspberry). $1
 Smalltalk saveSession. 
 " > /dev/null 2>&1
@@ -147,7 +151,7 @@ Smalltalk saveSession.
 ./tmp/pharo64/pharo tmp/$TEMP_MULTI_SERCLI/PharoThings64.image eval --save "
 HelpBrowser allInstances do: #close.
 WelcomeHelp open.
-" > /dev/null 2>&1
+" 
 
 mkdir $TEMP_MULTI_SERCLI
 cp tmp/$TEMP_MULTI_SERCLI/PharoThings32.image $TEMP_MULTI_SERCLI
