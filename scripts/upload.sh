@@ -10,4 +10,4 @@ cd Ci
 git checkout master
 git add docs/*.zip
 git commit -m "Travis upload release files"
-git push http://oliveiraallex:${GH}@github.com/pharo-iot/Ci.git 
+git push http://${GH}@github.com/pharo-iot/Ci.git 
