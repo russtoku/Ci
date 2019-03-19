@@ -36,7 +36,7 @@ Smalltalk saveSession.
 " > /dev/null 2>&1
 
 # Setting Welcome PharoThings
-wget -P tmp http://get.pharothings.com/welcomePharoIoT.st
+wget -P tmp http://get.pharoiot.com/welcomePharoIoT.st
 ./tmp/pharo32/pharo tmp/$TEMP_RASP_SER/PharoThings32.image st --save --quit tmp/welcomePharoIoT.st
 ./tmp/pharo32/pharo tmp/$TEMP_RASP_SER/PharoThings32.image eval --save "
 HelpBrowser allInstances do: #close.
