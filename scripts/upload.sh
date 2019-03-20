@@ -12,4 +12,4 @@ git config --global user.name "Allex Oliveira"
 git checkout master
 git add docs/*.zip
 git commit -m "Travis upload release files"
-git push "https://oliveiraallex:${GH_TOKEN}@github.com/pharo-iot/Ci.git" master
+git push "https://pharo-iot:${GH_TOKEN}@github.com/pharo-iot/Ci.git" master

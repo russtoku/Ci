@@ -22,8 +22,11 @@ deploy:
   provider: releases
   api_key:
     secure: iXtCJYxIugVg22R3/QEhiH+EaKvp1mYhiI27M5yQ57Ar5uoHNY/OKzG35SY/jaTYga/mgI3+MSpK7GEOnJ6uDakhebMCAIzAR9kGk9YgiO8ChHQHsjipg5u8DntciUWAk6Z8wHAJmb5+VDZ1vuYvn+NTZYGgynjGCXqCE4uPddDXLeuN4ugKWS/Hr4mkca/fG56EukVH8wWpEdcw2Vv78KI07n8nzSDKzts5VgZGpHjCnY5EVAvucJYG+ncF3C5WauknHYHWLm2zjUpTrRiYDP/gNr+9b9WcVsqkQTe6CCGguvgZ1CD98fTiDPMn6aB8DpvBLNaK88r2Hyvkb+7Vzi4IsrPufMGCvSPl9l/xNK/Aq3MOC34utBy0dgkn6Nehmo8BIvuMhuS8pFxQveoKYSCms8DTvrRII0D9+1OfUJ5TPQbGNUIzigIUv/1aEsvdhdJmjklQ5/P77hqucsq0XsbJywUUNSXnRTKTigPzH1cF4L/fz8NJ19OuNZfFddfCSFAyJAP6hg53i17rhzsmQWTqFlNurM2Q7NsOgwHStxByC4Yr3VpNeB67ZlGwZuVoOTWsvodr8sKh/ug7RQ7bVFAh0Yy9h6TJuVBdLKPEbBwa9n3tm074ZzhUB48l1cTO8tjZyfDyCP4ZuAAdlC4hige8tThQRfUdDYPysmeTs5Q=
-  file: ''
+  skip_cleanup: true
+  file_glob: true
+  file: download/*.zip
   on:
+    tags: true
     repo: pharo-iot/Ci
 after_deploy:
 - "./scripts/upload.sh"
