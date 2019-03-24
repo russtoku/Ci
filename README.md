@@ -2,9 +2,11 @@
 
 [![Build Status](https://travis-ci.org/pharo-iot/Ci.svg?branch=master)](https://travis-ci.org/pharo-iot/Ci)
 
-Pharo IoT CI is a Continuous Integration process created using Travis CI. This process generate a Pharo image with [PharoThings](https://github.com/pharo-iot/PharoThings) and [TelePharo](https://github.com/dionisiydk/TelePharo) already installed and ready to run in multiplatform (Raspberry, Linux, Windows, Mac) with 1 click files. You can see the files to download in **[Releases page](https://github.com/pharo-iot/Ci/releases)**. All zip files for download are automatically created and deployed when a new tag is created here.
+Pharo IoT CI is a Continuous Integration process created using [Travis CI](https://travis-ci.org/pharo-iot/Ci). This process generate a Pharo image with [PharoThings](https://github.com/pharo-iot/PharoThings) and [TelePharo](https://github.com/dionisiydk/TelePharo) already installed and ready to run in multiplatform (Raspberry, Linux, Windows, Mac) with 1 click files. You can see the files to download in **[Releases page](https://github.com/pharo-iot/Ci/releases)**. All zip files for download are automatically created and deployed when a new tag is created here.
 
 You can run the scripts by yourself in your local machine (Linux, Mac). Clone this repository, go to scripts folder and run the script `./run-scripts`. If you wanna skip the PharoThings instalation, just run `./run-scripts noInstall`. You can see the results inside the folder results-$DATE. 
+
+We are using Github Pages to run the **get.pharo.org**. You can see the files in [docs/](docs/) folder.
 
 In this way, **you can help us to improve this CI process**: Just clone this repository, do the modifications testing the scripts in your local machine (Linux, Mac) and submit a Pull Request with your modifications.
 
@@ -31,23 +33,23 @@ There are 3 zip files with the VM and PharoThings already installed.
 - **pharothings-server (Raspberry Pi)**
 This file has Pharo7, ARM VM and PharoThings **server** loaded;
 
-    [Zeroconf](http://get.pharoiot.com/server):`wget -O - get.pharoiot.com/server | bash`
+    [Zeroconf](http://get.pharoiot.org/server):`wget -O - get.pharoiot.org/server | bash`
     
-    **[Download](http://get.pharoiot.com/server.zip)**:`wget get.pharoiot.com/server.zip`
+    **[Download](http://get.pharoiot.org/server.zip)**:`wget get.pharoiot.org/server.zip`
 
 - **pharothings-client (Raspberry Pi)**
 This file has Pharo7, ARM VM, PharoThings **server and client** loaded. This way you can to work in the Raspberry Pi directly connected in a screen and keyboard/mouse, using the developer PharoThings tools, like the Board Inspector;
 
-    [Zeroconf](http://get.pharoiot.com/client):`wget -O - get.pharoiot.com/client | bash`
+    [Zeroconf](http://get.pharoiot.org/client):`wget -O - get.pharoiot.org/client | bash`
     
-    **[Download](http://get.pharoiot.com/client.zip)**:`wget get.pharoiot.com/client.zip`
+    **[Download](http://get.pharoiot.org/client.zip)**:`wget get.pharoiot.org/client.zip`
 
 - **pharothings-multi (Raspberry Pi, Linux, Windows, Mac)**
 This file has Pharo7, all VMs 32bit, PharoThings **server and client** loaded.
 
-    [Zeroconf](http://get.pharoiot.com/multi):`wget -O - get.pharoiot.com/multi | bash`
+    [Zeroconf](http://get.pharoiot.org/multi):`wget -O - get.pharoiot.org/multi | bash`
 
-    **[Download](http://get.pharoiot.com/multi.zip)**:`wget get.pharoiot.com/multi.zip`
+    **[Download](http://get.pharoiot.org/multi.zip)**:`wget get.pharoiot.org/multi.zip`
 
 ## Start files
 There are 4 files of *1 click start*. All of them start with the Pharo image already selected. You can use them according to your necessities:
@@ -94,7 +96,7 @@ You can install the Operation System (Raspbian) in your Raspberry Pi and do all 
 
 Download the PiBakery: [PiBakery Download](https://www.pibakery.org/download.html)
 
-Download the XML configuration file: [PiBakery PharoThings Configuration](http://get.pharoiot.com/pibakeryPharoIoT.xml)
+Download the XML configuration file: [PiBakery PharoThings Configuration](http://get.pharoiot.org/pibakeryPharoIoT.xml)
 
 1. Import this XML file in PiBakery
 2. Change your hostname and WiFi configuration
