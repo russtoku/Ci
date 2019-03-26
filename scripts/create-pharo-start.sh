@@ -66,7 +66,7 @@ elif [[ "{$VM}" = *osx32* ]]; then
     # disable parameter expansion to forward all arguments unprocessed to the VM
     set -f
     # run the VM and pass along all arguments as is
-    "$DIR"/"vm/$VM/Pharo.app/Contents/MacOS/Pharo" "$DIR"/PharoThings32.image &
+    open -n "$DIR"/"vm/$VM/Pharo.app" --args "$DIR"/PharoThings32.image
 elif [[ "{$VM}" = *linux64* ]]; then
     vm/$VM/pharo PharoThings64.image ;
 elif [[ "{$VM}" = *linux32* ]]; then
