@@ -30,8 +30,7 @@ cd ../..
 $1 Iceberg enableMetacelloIntegration: true.
 Metacello new
   baseline: 'PharoThings';
-  repository: 'github://pharo-iot/PharoThings/src';
-  onConflict: [:e | e useExisting  ];
+  repository: 'github://pharo-iot/PharoThings/src:v0.2.4';
   load: #(RemoteDevServer Raspberry). $1
 Smalltalk saveSession. 
 " > /dev/null 2>&1
@@ -58,8 +57,7 @@ cp -r tmp/$TEMP_RASP_SER/ tmp/$TEMP_RASP_SERCLI/
 $1 Iceberg enableMetacelloIntegration: true.
 Metacello new
   baseline: 'PharoThings';
-  repository: 'github://pharo-iot/PharoThings/src';
-  onConflict: [:e | e useExisting  ];
+  repository: 'github://pharo-iot/PharoThings/src:v0.2.4';
   load: 'RemoteDev'. $1
 Smalltalk saveSession. 
 " > /dev/null 2>&1
@@ -135,13 +133,11 @@ cd ../..
 $1 Iceberg enableMetacelloIntegration: true.
 Metacello new
   baseline: 'PharoThings';
-  repository: 'github://pharo-iot/PharoThings/src';
-  onConflict: [:e | e useExisting  ];
+  repository: 'github://pharo-iot/PharoThings/src:v0.2.4';
   load: 'RemoteDev'.
 Metacello new
   baseline: 'PharoThings';
-  repository: 'github://pharo-iot/PharoThings/src';
-  onConflict: [:e | e useExisting  ];
+  repository: 'github://pharo-iot/PharoThings/src:v0.2.4';
   load: #(RemoteDevServer Raspberry). $1
 Smalltalk saveSession. 
 " > /dev/null 2>&1
