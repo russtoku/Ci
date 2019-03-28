@@ -5,7 +5,7 @@ set -ex
 TEMP_RASP_SER=pharoiot-server
 TEMP_RASP_SERCLI=pharoiot-client
 TEMP_MULTI_SERCLI=pharoiot-multi
-
+LAST_TAG_PHAROTHINGS=`curl --silent https://api.github.com/repos/pharo-iot/PharoThings/tags | grep name | head -1 | cut -d'"' -f4`
 # Step 1 - Prepare images
 
 # 1.1 Download the PharoVM for the current platform
@@ -30,7 +30,7 @@ cd ../..
 $1 Iceberg enableMetacelloIntegration: true.
 Metacello new
   baseline: 'PharoThings';
-  repository: 'github://pharo-iot/PharoThings:v0.2.5/src';
+  repository: 'github://pharo-iot/PharoThings:$LAST_TAG_PHAROTHINGS/src';
   load: #(RemoteDevServer Raspberry). $1
 Smalltalk saveSession. 
 " > /dev/null 2>&1
@@ -57,7 +57,7 @@ cp -r tmp/$TEMP_RASP_SER/ tmp/$TEMP_RASP_SERCLI/
 $1 Iceberg enableMetacelloIntegration: true.
 Metacello new
   baseline: 'PharoThings';
-  repository: 'github://pharo-iot/PharoThings:v0.2.5/src';
+  repository: 'github://pharo-iot/PharoThings:$LAST_TAG_PHAROTHINGS/src';
   load: 'RemoteDev'. $1
 Smalltalk saveSession. 
 " > /dev/null 2>&1
@@ -133,11 +133,11 @@ cd ../..
 $1 Iceberg enableMetacelloIntegration: true.
 Metacello new
   baseline: 'PharoThings';
-  repository: 'github://pharo-iot/PharoThings:v0.2.5/src';
+  repository: 'github://pharo-iot/PharoThings:$LAST_TAG_PHAROTHINGS/src';
   load: 'RemoteDev'.
 Metacello new
   baseline: 'PharoThings';
-  repository: 'github://pharo-iot/PharoThings:v0.2.5/src';
+  repository: 'github://pharo-iot/PharoThings:$LAST_TAG_PHAROTHINGS/src';
   load: #(RemoteDevServer Raspberry). $1
 Smalltalk saveSession. 
 " > /dev/null 2>&1
