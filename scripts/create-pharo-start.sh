@@ -74,7 +74,7 @@ elif [[ "{$VM}" = *linux32* ]]; then
 fi' >> tmp/$VM_SCRIPT
 elif [[ "{$VM_SCRIPT}" = *server* ]]; then
     echo 'if [[ "{$VM}" = *arm* ]]; then
-vm/$VM/pharo --headless PharoThings32.image remotePharo --startServerOnPort=40423
+sudo vm/$VM/pharo --headless PharoThings32.image remotePharo --startServerOnPort=40423
 elif [[ "{$VM}" = *osx32* ]]; then
     # some magic to find out the real location of this script dealing with symlinks
     DIR=`readlink "$0"` || DIR="$0";
@@ -93,7 +93,7 @@ elif [[ "{$VM}" = *linux32* ]]; then
 fi' >> tmp/$VM_SCRIPT
 else
    echo 'if [[ "{$VM}" = *arm* ]]; then
-vm/$VM/pharo --headless PharoThings32.image $1 $2 $3
+sudo vm/$VM/pharo --headless PharoThings32.image $1 $2 $3
 elif [[ "{$VM}" = *osx32* ]]; then
     # some magic to find out the real location of this script dealing with symlinks
     DIR=`readlink "$0"` || DIR="$0";
