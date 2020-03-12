@@ -44,27 +44,30 @@ HTML_HELP=<<HTML_HELP
 	</style>
 <body>
 <h1>Telepharo</h1>
-<p>This zip file <code><a href="Pharo70-32-64-vms-telepharo.zip">Pharo70-32-64-vms-telepharo.zip</a></code> contain:</p>
+<p>These zip files contain:</p>
 <li>Pharo7 image 32/64 bit</li>
 <li>Pharo VM Mac</li>
 <li>Telepharo installed</li>
 <br>
-<b>32 bit</b> only image: <code><a href="Pharo70-32bit-telepharo.zip">Pharo70-32bit-telepharo.zip</a></code></p>
+<!--<b>32 bit</b> only image: <code><a href="Pharo70-32bit-telepharo.zip">Pharo70-32bit-telepharo.zip</a></code></p>
 
 <b>64 bit</b> only image: </b><code><a href="Pharo70-64bit-telepharo.zip">Pharo70-64bit-telepharo.zip</a></code>
-
+-->
 <h2>Usage</h2>
 
 <h4>Server - Download the zip file and extract it.</h4>
-<p>Option 1: Double click on file <b>pharo-server</b> to start the server in headless mode or <b>pharo-server-ui</b> to start the server with UI.
-<p>Option 2: Double click in <b>pharo-ui</b>, open the playground and type: <code>TlpRemoteUIManager registerOnPort: 40423</code></p>
+<code><a href="Pharo70-32-64-vms-telepharo-server-70.zip">Pharo70-32-64-vms-telepharo-server-70.zip</a></code>
+<p>Double click on file <b>pharo-server</b> to start the server in headless mode or <b>pharo-server-ui</b> to start the server with UI.
+<br><br>
 
-<h4>Client - Download other the zip file and extract it.</h4>
 
-<p>Double click in file <b>pharo-ui</b> and type in the playground: <code>remotePharo := TlpRemoteIDE connectTo: (TCPAddress ip: #[127 0 0 1] port: 40423)</code></p>
+<h4>Client - Download the zip file and extract it.</h4>
+<code><a href="Pharo70-32-64-vms-telepharo-client-70.zip">Pharo70-32-64-vms-telepharo-client-70.zip</a></code>
 
-<p>Now you can open the remote browser, playground and process browser:</p>
-<code>remotePharo openBrowser<br>
+<p>Double click in file <b>pharo-ui</b> and type in the playground:<br> <br>
+<code>
+	remotePharo := TlpRemoteIDE connectTo: (TCPAddress ip: #[127 0 0 1] port: 40423)<br>
+	remotePharo openBrowser<br>
 	remotePharo openPlayground</code>
 
 
