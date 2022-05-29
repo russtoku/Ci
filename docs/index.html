@@ -48,13 +48,17 @@ This file has Pharo7, ARM VM and Pharo IoT <strong>server</strong> loaded;<br>
 </li>
 <li>
 <p><strong>pharoiot-multi</strong> (Raspberry Pi, Linux, Windows, Mac)<br>
-This file has Pharo7, all VMs 32bit, Pharo IoT <strong>server and client</strong> loaded.<br>
+This file has Pharo7, all VMs 32bit, Pharo IoT <strong>server and client</strong> included.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<em>Note: Mac users running macOS 10.15 Catalina and later see
+  instructions below.</em><br>
 <strong><a href="http://get.pharoiot.org/multi" rel="nofollow">Zeroconf</a></strong>:<code>wget -O - get.pharoiot.org/multi | bash</code><br>
 <strong><a href="http://get.pharoiot.org/multi.zip" rel="nofollow">Download</a></strong>:<code>wget get.pharoiot.org/multi.zip</code></p>
 <iframe width="900" height="508" src="https://www.youtube.com/embed/0ymxp9Hthkw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </li>
 </ul>
 <h2>Start files</h2>
+&nbsp;&nbsp;&nbsp;&nbsp;<em>Note: Mac users running macOS 10.15 Catalina and later see
+  instructions below.</em><br>
 <p>There are 4 files of <em>1 click start</em>. All of them start with the Pharo image already selected. You can use them according to your necessities:</p>
 <ul>
 <li><strong>pharo</strong> (Raspberry, Linux, Mac OSX)<br>
@@ -69,11 +73,15 @@ Open Pharo User Interface on Microsoft Windows.</li>
 <h2>Connecting</h2>
 <ol>
 <li>Start the <strong>pharo-server</strong> on Raspberry Pi.</li>
-<li>Run the Pharo IoT client: <strong>pharo-ui</strong> (Mac, Linux) or <strong>pharo.bat</strong> (Windows). Open the Playground, type and run this line (cmd + D):</li>
+<li>Run the Pharo IoT client: <strong>pharo-ui</strong> (Mac, Linux) or <strong>pharo.bat</strong> (Windows).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<em>Note: Mac users running macOS 10.15 Catalina and later see
+  instructions below.</em><br>
+</li>
+<li>Open the Playground, type and run this line (cmd + D):</li>
 </ol>
 <pre><code>remotePharo := TlpRemoteIDE connectTo: (TCPAddress ip: #[192 168 1 200] port: 40423).
 </code></pre>
-<ol start="3">
+<ol start="4">
 <li>If you don't receive any error, this means that you are connected. Now you can inspect the physical board of your Raspberry Pi:</li>
 </ol>
 <pre><code>remoteBoard := remotePharo evaluate: [ RpiBoard3B current].
@@ -84,11 +92,22 @@ remoteBoard inspect.
 remotePharo openBrowser.
 remotePharo openProcessBrowser.
 </code></pre>
+<h2>Connecting for Mac users running macOS 10.15 Catalina and later</h2>
+<p>
+Macs running Catalina and later can't run 32bit software so don't use <strong>phariot-multi</strong>
+(download multi.zip) above.<br>
+It's assumed that you want to connect to a Raspberry Pi running <strong>pharo-server</strong> so:.
+<ol>
+  <li>Install the <a href="https://pharo.org/download">Pharo Launcher for MacOs</a>.</li>
+  <li>Run the Pharo Launcher to launch a configuration with a PharoThings image.</li>
+  <li>Then continue with step 3 in the Connecting section above.</li>
+</ol>
+</p>
 <h2>Playing with Pharo IoT Booklet</h2>
 <p>You can start playing with LEDs, sensors and learn how to build your <strong>Mini-Weather Station</strong> to shows the temperature and other parameters in an LCD display, and send the data to a cloud server.<br>
 All this content and lessons are written in the <strong>PharoThings Booklet</strong>, you can access it here: <a href="https://github.com/SquareBracketAssociates/Booklet-APharoThingsTutorial/" target="_blank">PharoThings Booklet</a></p>
   </div>
-<h1>Raspberry Pi Headless Instalation</h1>
+<h1>Raspberry Pi Headless Installation</h1>
 <p>You can install the Operation System (Raspbian) in your Raspberry Pi and do all configuration without keyboard/mouse/screen. With this method you will automaticaly:</p>
 <ul>
 <li>Set the hostname</li>    
